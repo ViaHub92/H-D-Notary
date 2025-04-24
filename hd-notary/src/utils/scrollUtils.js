@@ -1,4 +1,24 @@
 /**
+ * Creates a throttled scroll handler using requestAnimationFrame for optimal performance
+ * @param {Function} callback - The function to call on throttled scroll
+ * @return {Function} - The throttled scroll handler
+ */
+export const createThrottledScrollHandler = (callback) => {
+  let isWaiting = false;
+  
+  return () => {
+    if (isWaiting) return;
+    
+    isWaiting = true;
+    
+    requestAnimationFrame(() => {
+      callback();
+      isWaiting = false;
+    });
+  };
+};
+
+/**
  * Utility function for smooth scrolling to sections with header offset
  */
 export const scrollToSection = (e) => {

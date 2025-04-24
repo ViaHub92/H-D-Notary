@@ -47,36 +47,44 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-/* Header Styles - Compact version */
+/* Header Styles - Stable version */
 .header {
   background-color: rgba(16, 26, 35, 0.95);
-  padding: 1rem 0 0.5rem; /* Reduced padding */
+  padding: 1rem 0 0.5rem;
   border-bottom: 1px solid var(--gold-primary);
   position: sticky;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease; /* Add smooth transition */
+  transition: padding 0.25s ease-out; /* Specific property transition */
 }
 
-/* Logo styles for smaller header */
+/* Logo styles - Stable transition */
 .logo-container {
-  margin-bottom: 0.5rem; /* Reduced margin */
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .logo {
-  max-width: 200px; /* Smaller logo */
+  max-width: 200px;
   height: auto;
-  transition: all 0.3s ease;
+  transition: max-width 0.25s ease-out; /* Specific property transition */
 }
 
-/* Compact navigation */
-.nav-container {
-  padding: 0.5rem 0; /* Reduced padding */
+/* Header scrolled state */
+.header-scrolled {
+  padding: 0.5rem 0 0.25rem;
+}
+
+.header-scrolled .logo {
+  max-width: 160px;
+}
+
+.header-scrolled .nav-container {
+  padding: 0.25rem 0;
 }
 
 .nav-links {
@@ -89,19 +97,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-links li {
   margin: 0 1.25rem; /* Slightly reduced margin */
-}
-
-/* Add header scroll behavior for even more compact header when scrolling */
-.header-scrolled {
-  padding: 0.5rem 0 0.25rem;
-}
-
-.header-scrolled .logo {
-  max-width: 160px;
-}
-
-.header-scrolled .nav-container {
-  padding: 0.25rem 0;
 }
 
 .nav-links a {
@@ -178,7 +173,7 @@ h2::after {
   position: absolute;
   bottom: -10px;
   left: 0;
-  width: 60px;
+  width: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent));
   transform: translateX(0);
@@ -201,21 +196,76 @@ p {
   font-family: var(--font-body);
 }
 
-/* About Section */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* Improved About Section Styling */
+.about-container {
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .logo {
-    max-width: 220px; /* Smaller on mobile devices */
-  }
+.about-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-tagline {
+  font-size: 1.4rem;
+  color: var(--gold-primary);
+  font-family: var(--font-heading);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.feature-item {
+  background-color: rgba(16, 26, 35, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(212, 175, 55, 0.4);
+  background-color: rgba(16, 26, 35, 0.8);
+}
+
+/* Update the feature-item h3 and h3::after styles */
+.feature-item h3 {
+  color: var(--gold-primary);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.feature-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0; /* Change from 40px to 0 to remove the static underline */
+  height: 2px;
+  background-color: var(--gold-primary);
+  transition: width 0.3s ease;
+}
+
+/* Keep the hover effect */
+.feature-item:hover h3::after {
+  width: 100%; /* Expand the underline on hover */
+}
+
+.feature-item p {
+  margin-bottom: 0;
 }
 
 /* Services Grid - Add styling for the services section */
@@ -300,43 +350,99 @@ p {
 }
 
 /* Contact Section */
+
+/* Redesigned Contact Section */
 .contact-methods {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 2rem 0;
+  gap: 1.5rem;
 }
 
 .contact-method {
-  width: 200px;
-  padding: 1.75rem;
-  margin: 1rem;
-  background-color: var(--background-dark);
+  width: 250px;
+  padding: 2rem;
+  margin: 0;
+  background: linear-gradient(145deg, rgba(28, 42, 54, 0.8), rgba(16, 26, 35, 0.9));
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  border-left: 3px solid var(--gold-primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.05);
+}
+
+.contact-method::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .contact-method:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.contact-method:hover::before {
+  opacity: 1;
 }
 
 .contact-method h3 {
   color: var(--gold-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
 }
 
-.contact-method h3::before {
-  content: "";
+.contact-method h3::after {
+  content: '';
   position: absolute;
-  width: 30px;
-  height: 3px;
-  background-color: var(--gold-secondary);
-  bottom: -8px;
+  bottom: 0;
   left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-primary);
+  transition: width 0.3s ease;
+}
+
+.contact-method:hover h3::after {
+  width: 100%;
+}
+
+/* Remove the previous contact-method h3::before */
+.contact-method h3::before {
+  display: none;
+}
+
+.contact-method p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-method p:last-child {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Add contact icons */
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold-primary);
+  transition: transform 0.3s ease;
+}
+
+.contact-method:hover .contact-icon {
+  transform: scale(1.15);
 }
 
 button {

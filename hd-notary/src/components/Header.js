@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import logo from '../assets/logo.png';
-import { scrollToSection } from '../utils/scrollUtils';
+import { scrollToSection, createThrottledScrollHandler } from '../utils/scrollUtils';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-
+  
+  // Define the scroll handler with useCallback to prevent recreation on each render
+  const handleScrollUpdate = useCallback(() => {
+    const offset = window.scrollY;
+    if (offset > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }, []);
+  
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    // Create a throttled scroll handler
+    const handleScroll = createThrottledScrollHandler(handleScrollUpdate);
+    
+    // Initial check
+    handleScrollUpdate();
+    
+    // Add event listener with throttled handler
     window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScrollUpdate]);
 
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
