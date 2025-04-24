@@ -1,4 +1,4 @@
-# H-D-Notary
+# H&D Notary
 
 A professional website for notary services built with React.
 
