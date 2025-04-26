@@ -46,10 +46,18 @@ function App() {
             </div>
             
             <div className="certifications">
-              <div className="certification-badge">
-                <FaCheckCircle className="cert-icon" />
-                <p>NNA Certified Loan Signing Agent</p>
-              </div>
+              <a 
+                href="https://www.signingagent.com/profile/161908212" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="certification-badge-link"
+                aria-label="Verify NNA Certification"
+              >
+                <div className="certification-badge">
+                  <FaCheckCircle className="cert-icon" />
+                  <p>NNA Certified Loan Signing Agent</p>
+                </div>
+              </a>
             </div>
           </div>
         </section>
