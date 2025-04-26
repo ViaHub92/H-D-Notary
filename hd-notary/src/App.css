@@ -11,8 +11,6 @@ html {
   --gold-accent: #FFD700;
   --white: #FFFFFF;
   --light-gray: #F5F5F5;
-  
-  /* Add font variables for consistent usage */
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Source Sans Pro', sans-serif;
 }
@@ -58,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: padding; /* Hint to browser to optimize for this property */
+  will-change: padding;
 }
 /* Logo styles - Stable transition */
 .logo-container {
@@ -72,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 200px;
   height: auto;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform; /* GPU acceleration hint */
+  will-change: transform;
 }
 
 
@@ -94,11 +92,11 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   list-style: none;
   padding: 0;
-  margin: 0; /* Ensure no extra margin */
+  margin: 0;
 }
 
 .nav-links li {
-  margin: 0 1.25rem; /* Slightly reduced margin */
+  margin: 0 1.25rem;
 }
 
 .nav-links a {
@@ -148,7 +146,7 @@ section {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
-  scroll-margin-top: 100px; /* This creates space for the sticky header */
+  scroll-margin-top: 100px; 
 }
 
 section::before {
@@ -302,15 +300,15 @@ p {
   position: absolute;
   bottom: -5px;
   left: 0;
-  width: 0; /* Change from 40px to 0 to remove the static underline */
+  width: 0;
   height: 2px;
   background-color: var(--gold-primary);
   transition: width 0.3s ease;
 }
 
-/* Keep the hover effect */
+
 .feature-item:hover h3::after {
-  width: 100%; /* Expand the underline on hover */
+  width: 100%;
 }
 
 .feature-item p {
@@ -320,10 +318,10 @@ p {
 /* Updated Services Grid - keeping 4 cards with better separation */
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2x2 layout */
-  gap: 5rem; /* Increased gap to create more visual separation */
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
   margin-top: 2.5rem;
-  max-width: 1000px; /* Slightly narrower width */
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -331,7 +329,7 @@ p {
 /* Enhanced service cards with reduced size */
 .service {
   background: linear-gradient(145deg, rgba(28, 42, 54, 0.8), rgba(16, 26, 35, 0.9));
-  padding: 2rem; /* Slightly less padding */
+  padding: 2rem;
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -340,9 +338,9 @@ p {
   border: 1px solid rgba(212, 175, 55, 0.05);
   display: flex;
   flex-direction: column;
-  height: 80%; /* Maintain equal heights */
-  max-width: 400px; /* Maximum width to ensure cards don't get too wide */
-  margin: 0 auto; /* Center within grid cell */
+  height: 80%;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /* Add a subtle hover border glow */
@@ -362,7 +360,7 @@ p {
 
 /* Make icons more prominent */
 .service-icon {
-  font-size: 3rem; /* Slightly smaller icon */
+  font-size: 3rem;
   color: var(--gold-primary);
   transition: all 0.3s ease;
 }
@@ -375,7 +373,7 @@ p {
 .service h3 {
   font-family: var(--font-heading);
   margin-top: 0;
-  font-size: 1.5rem; /* Slightly smaller heading */
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -383,7 +381,7 @@ p {
 .service p {
   font-family: var(--font-body);
   margin-bottom: 1rem;
-  font-size: 1rem; /* Standard font size */
+  font-size: 1rem;
   line-height: 1.6;
   text-align: center;
 }
@@ -408,7 +406,7 @@ p {
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: 1fr; /* Stack on smaller screens */
+    grid-template-columns: 1fr;
   }
   
   .service {
@@ -422,7 +420,7 @@ p {
 
 @media (max-width: 480px) {
   .logo {
-    max-width: 180px; /* Even smaller on very small screens */
+    max-width: 180px;
   }
   
   .nav-links {
