@@ -1,12 +1,17 @@
 import React from 'react';
-import { FaFileContract, FaHandshake, FaFileSignature, FaCarSide } from 'react-icons/fa';
+import { 
+  FaFileContract,  
+  FaFileSignature, 
+  FaCarSide, 
+  FaHome, 
+} from 'react-icons/fa';
 
 const getIcon = (type) => {
   switch (type) {
     case 'real-estate':
       return <FaFileContract className="service-icon" />;
     case 'poa':
-      return <FaHandshake className="service-icon" />;
+      return <FaHome className="service-icon" />;
     case 'affidavit':
       return <FaFileSignature className="service-icon" />;
     case 'mobile':
