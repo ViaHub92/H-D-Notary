@@ -1,18 +1,37 @@
 /**
- * Creates a throttled scroll handler using requestAnimationFrame for optimal performance
+ * Creates a throttled scroll handler using requestAnimationFrame with debounce
+ * for more stable state changes
+ * 
  * @param {Function} callback - The function to call on throttled scroll
+ * @param {number} threshold - The threshold for scroll position change before updating state
  * @return {Function} - The throttled scroll handler
  */
-export const createThrottledScrollHandler = (callback) => {
+export const createThrottledScrollHandler = (callback, threshold = 5) => {
   let isWaiting = false;
+  let lastScrollPosition = window.scrollY;
+  let lastState = null;
   
   return () => {
+    // Don't do anything if we're already waiting for a frame
     if (isWaiting) return;
     
+    // Avoid processing if scroll hasn't changed significantly
+    const currentScrollPosition = window.scrollY;
+    if (Math.abs(currentScrollPosition - lastScrollPosition) < threshold) return;
+    
+    lastScrollPosition = currentScrollPosition;
     isWaiting = true;
     
     requestAnimationFrame(() => {
-      callback();
+      // Determine the new state first without updating state
+      const newState = currentScrollPosition > 100;
+      
+      // Only update if state would actually change
+      if (lastState !== newState) {
+        callback(newState);
+        lastState = newState;
+      }
+      
       isWaiting = false;
     });
   };

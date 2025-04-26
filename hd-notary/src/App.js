@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ServiceCard from './components/ServiceCard';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
 function App() {
   return (
@@ -17,23 +17,38 @@ function App() {
             <div className="about-intro">
               <p className="about-tagline">Professional notary services with integrity and attention to detail.</p>
               
-              <p>At H&D Notary, we are commissioned notaries serving the local community with a commitment to excellence in every interaction. With years of experience, we ensure all your notary needs are handled efficiently and accurately.</p>
+              <p>Hi, my name is Samuel Hairston, and I'm a certified NNA Notary Public and Loan Signing Agent proudly serving Oceanside, Vista, and Carlsbad. I specialize in providing accurate, reliable, and professional notary services to title companies, escrow offices, real estate agents, and individual clients.</p>
+              
+              <p>Though I'm newly certified, I've undergone extensive training to ensure every signing is handled with precision, care, and attention to detail. I understand the importance of making your clients feel comfortable and confident during the signing process, and I'm committed to creating a seamless experience from start to finish.</p>
+              
+              <p>I take pride in being punctual, professional, and prepared for every appointment. Whether it's a loan refinance, buyer package, seller package, or any other document signing, you can count on me to represent your company with excellence.</p>
+              
+              <p>When I'm not assisting clients, I'm focused on continuing education to stay up-to-date with industry standards and best practices — because I believe every signing deserves my absolute best.</p>
+              
+              <p>If you're looking for a dependable signing agent you can trust to get the job done right, I'd love to be your go-to partner.</p>
             </div>
             
             <div className="about-features">
               <div className="feature-item">
                 <h3>Our Mission</h3>
-                <p>Provide accessible, reliable notary services that make important document processing simple and stress-free for our clients.</p>
+                <p>Our mission is to provide professional, accurate, and seamless loan signing services that build trust and deliver peace of mind for every client.</p>
               </div>
               
               <div className="feature-item">
                 <h3>Our Approach</h3>
-                <p>We understand the importance of proper document notarization and take pride in our meticulous approach to every signing.</p>
+                <p>We combine attention to detail, clear communication, and a client-first mindset to ensure every signing experience is smooth, efficient, and stress-free.</p>
               </div>
               
               <div className="feature-item">
                 <h3>Our Commitment</h3>
-                <p>We're dedicated to providing prompt, professional service with the highest level of integrity and confidentiality.</p>
+                <p>We are committed to punctuality, professionalism, and excellence — treating every signing as an opportunity to represent you with integrity and care.</p>
+              </div>
+            </div>
+            
+            <div className="certifications">
+              <div className="certification-badge">
+                <FaCheckCircle className="cert-icon" />
+                <p>NNA Certified Loan Signing Agent</p>
               </div>
             </div>
           </div>
@@ -45,27 +60,26 @@ function App() {
           <div className="services-grid">
             <ServiceCard 
               type="real-estate" 
-              title="Real Estate Closings" 
-              description="Professional notarization for all your real estate transactions." 
-            />
-            <ServiceCard 
-              type="poa" 
-              title="Power of Attorney" 
-              description="Legally authorize someone to act on your behalf." 
+              title="Loan Signing Services" 
+              description="Handling buyer, seller, refinance, HELOC, and loan modification documents with precision and care to ensure smooth, error-free closings." 
             />
             <ServiceCard 
               type="affidavit" 
-              title="Affidavits & Statements" 
-              description="Official notarization of sworn statements and affidavits." 
+              title="General Notary Work" 
+              description="Providing mobile notary services for affidavits, power of attorney, healthcare directives, trust documents, and other important paperwork." 
+            />
+            <ServiceCard 
+              type="poa" 
+              title="Real Estate Document Signings" 
+              description="Assisting real estate professionals, title companies, and escrow officers by accurately executing closing documents and guiding clients through the signing process." 
             />
             <ServiceCard 
               type="mobile" 
-              title="Mobile Notary" 
-              description="We come to you for convenient notarization services." 
+              title="Mobile Notary Services" 
+              description="Offering convenient, flexible travel to homes, offices, hospitals, and other locations to meet clients where they are — saving them time and stress." 
             />
           </div>
         </section>
-        
         
         <section id="contact">
           <h2>Contact Us</h2>
@@ -74,20 +88,20 @@ function App() {
             <div className="contact-method">
               <FaPhone className="contact-icon" />
               <h3>Phone</h3>
-              <p>(555) 123-4567</p>
+              <p>(209) 279-6046</p>
               <p>Available Mon-Fri, 9am-5pm</p>
             </div>
             <div className="contact-method">
               <FaEnvelope className="contact-icon" />
               <h3>Email</h3>
-              <p>info@hdnotary.com</p>
+              <p>hdnotary2025@gmail.com</p>
               <p>We respond within 24 hours</p>
             </div>
             <div className="contact-method">
               <FaMapMarkerAlt className="contact-icon" />
               <h3>Location</h3>
-              <p>123 Main Street</p>
-              <p>City, State 12345</p>
+              <p>Mobile Service</p>
+              <p>Oceanside, Vista & Carlsbad</p>
             </div>
           </div>
         </section>

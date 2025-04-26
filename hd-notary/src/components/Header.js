@@ -6,24 +6,25 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   
   // Define the scroll handler with useCallback to prevent recreation on each render
-  const handleScrollUpdate = useCallback(() => {
-    const offset = window.scrollY;
-    if (offset > 100) {
-      setScrolled(true);
+  const handleScrollUpdate = useCallback((isScrolled) => {
+    // If the new state is provided directly from the handler, use it
+    if (typeof isScrolled === 'boolean') {
+      setScrolled(isScrolled);
     } else {
-      setScrolled(false);
+      // Otherwise, calculate it
+      setScrolled(window.scrollY > 100);
     }
   }, []);
   
   useEffect(() => {
-    // Create a throttled scroll handler
-    const handleScroll = createThrottledScrollHandler(handleScrollUpdate);
+    // Create a throttled scroll handler with threshold
+    const handleScroll = createThrottledScrollHandler(handleScrollUpdate, 10);
     
     // Initial check
     handleScrollUpdate();
     
     // Add event listener with throttled handler
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Cleanup
     return () => {
