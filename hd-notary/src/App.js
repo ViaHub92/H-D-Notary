@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ServiceCard from './components/ServiceCard';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaCalendarAlt, FaCheckCircle } from 'react-icons/fa';
 
 function App() {
   return (
@@ -90,27 +90,47 @@ function App() {
         </section>
         
         <section id="contact">
-          <h2>Contact Us</h2>
+          <h2>Make an Appointment</h2>
           <p>We're here to assist with all your notary needs. Reach out through any of the following methods:</p>
           <div className="contact-methods">
-            <div className="contact-method">
-              <FaPhone className="contact-icon" />
-              <h3>Phone</h3>
-              <p>(209) 279-6046</p>
-              <p>Available Mon-Fri, 9am-5pm</p>
-            </div>
-            <div className="contact-method">
-              <FaEnvelope className="contact-icon" />
-              <h3>Email</h3>
-              <p>hdnotary2025@gmail.com</p>
-              <p>We respond within 24 hours</p>
-            </div>
-            <div className="contact-method">
-              <FaMapMarkerAlt className="contact-icon" />
-              <h3>Location</h3>
-              <p>Mobile Service</p>
-              <p>Oceanside, Vista & Carlsbad</p>
-            </div>
+            
+            <a 
+              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3gQXvZTxAd7HLcNqMT5_dVUEYzPoJxNuBIQQcNLdObKD51RzME6qo4SZGRjPrWOd-1nOip_60-" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-method-link"
+            >
+              <div className="contact-method">
+                <FaCalendarAlt className="contact-icon" />
+                <h3>Book Appt.</h3>
+                <p>Book a convenient time</p>
+                <p>Quick and easy online scheduling</p>
+              </div>
+            </a>
+            
+            <a 
+              href="tel:2092796046" 
+              className="contact-method-link"
+            >
+              <div className="contact-method">
+                <FaPhone className="contact-icon" />
+                <h3>Phone</h3>
+                <p>(209) 279-6046</p>
+                <p>Available Mon-Fri, 9am-5pm</p>
+              </div>
+            </a>
+            
+            <a 
+              href="mailto:hdnotary2025@gmail.com" 
+              className="contact-method-link"
+            >
+              <div className="contact-method">
+                <FaEnvelope className="contact-icon" />
+                <h3>Email</h3>
+                <p>hdnotary2025@gmail.com</p>
+                <p>We respond within 24 hours</p>
+              </div>
+            </a>
           </div>
         </section>
       </main>
