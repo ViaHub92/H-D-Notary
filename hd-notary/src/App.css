@@ -309,13 +309,16 @@ p {
   width: 100%;
 }
 
+/* Update the feature-item styling for better mobile responsiveness */
 .feature-item {
   background-color: rgba(16, 26, 35, 0.6);
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 8px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 
@@ -348,7 +351,7 @@ p {
   margin-bottom: 0;
 }
 
-/* Updated Services Grid - keeping 4 cards with better separation */
+
 .services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -359,7 +362,7 @@ p {
   margin-right: auto;
 }
 
-/* Enhanced service cards with reduced size */
+
 .service {
   background: linear-gradient(145deg, rgba(28, 42, 54, 0.8), rgba(16, 26, 35, 0.9));
   padding: 2rem;
@@ -376,14 +379,14 @@ p {
   margin: 0 auto;
 }
 
-/* Add a subtle hover border glow */
+
 .service:hover {
   transform: translateY(-8px);
   border-color: rgba(212, 175, 55, 0.2);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Better visual hierarchy in service cards */
+
 .service-icon-container {
   margin-bottom: 1.5rem;
   display: flex;
@@ -391,7 +394,7 @@ p {
   justify-content: center;
 }
 
-/* Make icons more prominent */
+
 .service-icon {
   font-size: 3rem;
   color: var(--gold-primary);
@@ -448,6 +451,30 @@ p {
   
   .service h3 {
     font-size: 1.4rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .about-features {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .feature-item {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .feature-item h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .feature-item:hover h3::after {
+    width: 80%;
   }
 }
 
